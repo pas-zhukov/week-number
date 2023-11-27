@@ -25,6 +25,10 @@ def main():
     def send_week(message):
         bot.reply_to(message, f"Неделя №{datetime.now().isocalendar().week}")
 
+    @bot.message_handler(commands=['start'])
+    def send_week(message):
+        bot.reply_to(message, "Если отправить боту дату (в формате 01.01.23), в ответ он пришлёт номер недели! А команда /today позволяет узнать текущий номер недели.")
+
     @bot.message_handler(func=lambda m: True)
     def find_week(message):
         try:
